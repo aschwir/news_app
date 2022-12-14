@@ -16,5 +16,28 @@ body {
 
 section {
   height: 80rem;
-  background-color: #04227D;
+  /* background-color: #04227D; */
+}
+
+span {
+  display: inline-block;
+
+}
+
+.article-container {
+  font-size: 2rem;
+  height: 15em;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: green;
+  border: .1rem solid black;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.title {
+  align-items: flex-start;
 }

@@ -5,6 +5,9 @@
 
 // query news by keyword
 // https://newsapi.org/v2/everything?q=Apple&from=2022-12-14&sortBy=popularity&apiKey=API_KEY
+
+const container = document.querySelector(".article-box");
+// console.log(container);
 const articleArr = [];
 
 // const article = {
@@ -28,6 +31,19 @@ const news = async function () {
   data.articles.map((el) => articleArr.push(el));
 };
 
-response4 = news();
+news();
 
-console.log(articleArr);
+const markup = `
+    <article class="article-container">
+      <span class="title">Title</span>
+      <span class="img">url to image</span>
+      <span class="author">author</span>
+      <span class="description">description</span>
+      <span class="publishDate">published at</span>
+      <span class="content">content</span>
+    </article>
+`;
+
+const addHTML = function () {
+  container.insertAdjacentHTML("beforeend", markup);
+};
