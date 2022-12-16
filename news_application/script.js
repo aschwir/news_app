@@ -19,18 +19,22 @@ const news = async function () {
 
     let date = new Date(el.publishedAt).toLocaleString();
 
+    for (let i = 198; i < el.description.length; i++) {
+      if (el.description[i] === " ") {
+        return el.description.slice(0, i) + "...";
+      }
+    }
+
     const markup = `
     <article class="article-container">
-      <span class="title">${el.title}</span>
-      <span class="img"><img src="${el.urlToImage}" alt="image"></span>
-      <span class="author">${el.author}</span>
+      <h1 class="title">${el.title}</h1>
+      <span class="img"><a href="${el.url}"><img src="${el.urlToImage}" alt="image"></a></span> 
       <span class="description">${el.description}</span>
-      <span class="publishDate">${date}</span>
+      <span class="author"> Author: ${el.author}</span>
+      <span class="publishDate">Published: ${date}</span>
      
     </article>
     `;
-
-    console.log(date);
 
     addHTML(markup);
   });
