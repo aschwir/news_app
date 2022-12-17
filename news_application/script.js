@@ -1,18 +1,18 @@
-// c300c0a2777c47458b27d4880fbb95c8; API KEY
-
-// query new by country
-//https://newsapi.org/v2/top-headlines?country=us&apiKey=API_KEY
-
+let keyword;
+//; API KEY
+const KEY = "c300c0a2777c47458b27d4880fbb95c8";
+//search top headlines
+const countryURL = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${KEY}`;
 // query news by keyword
-// https://newsapi.org/v2/everything?q=Apple&from=2022-12-14&sortBy=popularity&apiKey=API_KEY
+const keywordURL = ` https://newsapi.org/v2/everything?q=${this.keyword}&language=en&sortBy=popularity&apiKey=${KEY}`;
 
 const container = document.querySelector(".article-box");
 const searchBtn = document.querySelector(".searchBtn");
 
 const news = async function () {
-  const results = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=us&apiKey=c300c0a2777c47458b27d4880fbb95c8`
-  );
+  // let url = !keyword ? countryURL : keywordURL;
+
+  const results = await fetch(countryURL);
   const data = await results.json();
   const articleArr = data.articles;
   articleArr.forEach((el) => {
@@ -31,13 +31,13 @@ const news = async function () {
     <div class="title-div">
       <h1 class="title">${el.title}</h1>
       </div>
-      <span class="img"><a href="${el.url}" target="_blank"><img src="${el.urlToImage}" alt="image"></a></span> 
+      <span class="img"><a href="${el.url}" target="_blank"><img src="${el.urlToImage}" alt="image"></a></span>
       <span class="description">${el.description}</span>
       <div class="article-footer"
       <span class="author"> Author: ${el.author}</span>
       <span class="publishDate">Published: ${date}</span>
       </div>
-     
+
     </article>
     `;
 
@@ -45,10 +45,13 @@ const news = async function () {
   });
 };
 
-news();
+news("Trump");
+/////////////////////////////////////////////////////////////////////////////
 
 const addHTML = function (markup) {
   container.insertAdjacentHTML("beforeend", markup);
 };
 
-searchBtn.addEventListener("click", function () {});
+searchBtn.addEventListener("click", function () {
+  news();
+});
