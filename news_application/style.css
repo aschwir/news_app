@@ -9,11 +9,30 @@ html {
 }
 
 body {
+  background-color: #e9ecef;
   margin: 2rem;
 }
 
 img {
   max-height: 13rem;
+}
+
+h1 {
+  font-size: 1.3rem;
+}
+
+.form {
+  height: 3.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: .5rem;
+  margin-right: 2rem;
+
+}
+
+input {
+  border-right: 0;
 }
 
 .article-box {
@@ -24,28 +43,50 @@ img {
 }
 
 .article-container {
+  background-color: aliceblue;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   border: .1rem solid black;
+  padding: 1rem;
+  padding-bottom: .3rem;
+}
 
+.article-container:hover {
+  background-color: #ced4da;
+}
+
+.article-footer {
+  display: flex;
+  font-size: .9rem;
+  justify-content: space-between;
 
 }
 
 .title {
-  align-items: flex-start;
-}
-
-.title {
+  display: inline;
+  align-items: center;
+  justify-content: center;
   letter-spacing: .2;
   line-height: 1.2;
+}
 
+.title-div {
+  display: flex;
+  justify-content: center;
+  padding-top: .5rem;
+  padding-bottom: 1rem;
 }
 
 .img {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: blue; */
   min-width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  margin-bottom: 1rem;
 }

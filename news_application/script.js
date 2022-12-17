@@ -7,6 +7,7 @@
 // https://newsapi.org/v2/everything?q=Apple&from=2022-12-14&sortBy=popularity&apiKey=API_KEY
 
 const container = document.querySelector(".article-box");
+const searchBtn = document.querySelector(".searchBtn");
 
 const news = async function () {
   const results = await fetch(
@@ -19,19 +20,23 @@ const news = async function () {
 
     let date = new Date(el.publishedAt).toLocaleString();
 
-    for (let i = 198; i < el.description.length; i++) {
+    for (let i = 100; i < el.description.length; i++) {
       if (el.description[i] === " ") {
-        return el.description.slice(0, i) + "...";
+        el.description = el.description.slice(0, i) + "...";
       }
     }
 
     const markup = `
     <article class="article-container">
+    <div class="title-div">
       <h1 class="title">${el.title}</h1>
-      <span class="img"><a href="${el.url}"><img src="${el.urlToImage}" alt="image"></a></span> 
+      </div>
+      <span class="img"><a href="${el.url}" target="_blank"><img src="${el.urlToImage}" alt="image"></a></span> 
       <span class="description">${el.description}</span>
+      <div class="article-footer"
       <span class="author"> Author: ${el.author}</span>
       <span class="publishDate">Published: ${date}</span>
+      </div>
      
     </article>
     `;
@@ -45,3 +50,5 @@ news();
 const addHTML = function (markup) {
   container.insertAdjacentHTML("beforeend", markup);
 };
+
+searchBtn.addEventListener("click", function () {});
